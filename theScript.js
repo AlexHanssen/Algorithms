@@ -1,21 +1,34 @@
-//let target = Document.getElementByID("container");
 
-// enter an integer between 1 and 16
 
 let gridMaker = num =>  {
-   
-const body = document.getElementsByTagName('body')[0];
+
+let nRed = Math.random()*255;
+let nGreen = Math.random()*255;
+
+document.getElementById('red').innerHTML = "The Red Value is "+Math.round(nRed);
+document.getElementById('green').innerHTML = "       The Green Value is "+Math.round(nGreen);
+const body = document.getElementById('theGrid');
+
 const tbl = document.createElement('table');
 let multi = 256/(num*num);
 let count =0;
+
 for (let i = 0; i<num; i++)
 {
     const tr = tbl.insertRow();
 
     for (let j=0; j<num;j++)
     {
+        let curCount=count;
         let td = document.createElement('td');
-        td.style.backgroundColor = "rgb(189,0,"+multi*count+")";
+        td.style.backgroundColor = "rgb("+nRed+","+nGreen+","+multi*curCount+")";
+        td.addEventListener("mouseover", (event) => {
+                td.style.textAlign = 'center';
+                td.innerHTML = Math.round(multi*curCount);
+                td.style.fontWeight = 900;
+            })
+            td.style.width = 90/num +"vw";
+            td.style.height = 80/num +"vh";
         tr.appendChild(td);
         
         count++;
@@ -26,4 +39,6 @@ body.appendChild(tbl);
 
 
 }
+
+//console.log(nRed+"  "+nGreen);
 gridMaker(16);

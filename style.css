@@ -1,11 +1,26 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+  background: black;
 }
-table,
-th,
+
 td {
-  border: 1px solid black;
-  min-width: 50px;
-  height: 50px;
+  border-color: 1px solid black;
+  border-radius: 3px;
+}
+table {
+  background-color: white;
+  margin-left: 20px;
+}
+span {
+  border: 1px solid;
+  text-align: center;
+  padding: 5px;
+  font-weight: 900;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border-radius: 4px;
+}
+
+#colors {
+  margin: 20px;
+  padding: 1px;
+  color: whitesmoke;
 }
