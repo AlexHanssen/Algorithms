@@ -22,13 +22,18 @@ for (let i = 0; i<num; i++)
         let curCount=count;
         let td = document.createElement('td');
         td.style.backgroundColor = "rgb("+nRed+","+nGreen+","+multi*curCount+")";
-        td.addEventListener("mouseover", (event) => {
+        td.addEventListener("mouseenter", (event) => {
                 td.style.textAlign = 'center';
                 td.innerHTML = Math.round(multi*curCount);
                 td.style.fontWeight = 900;
             })
-            td.style.width = 90/num +"vw";
-            td.style.height = 80/num +"vh";
+        td.addEventListener("mouseleave", (e) =>
+        {
+            td.innerHTML = '';
+
+        })
+        td.style.width = 90/num +"vw";
+        td.style.height = 80/num +"vh";
         tr.appendChild(td);
         
         count++;
